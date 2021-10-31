@@ -260,8 +260,16 @@ velocityData = output(:,2);
 accelData = output(:,3);
 distanceData = output(:,4);
 
+figure(1);
+hold on;
 plot(timeData,velocityData);
+xlabel("Time (s)")
+ylabel("Velocity (m/s)");
 
+yyaxis right;
+plot(timeData, accelData, "--");
+ylabel("Acceleration (m/s^2)");
+title("Velocity vs. Time")
 
 end
 

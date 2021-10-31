@@ -1,18 +1,18 @@
 function [output] = trackLapModel1(m, wd, Cd, Af, e, gr, tr, Cfx, Cfy, Cr, power, tStep, track)
 
-% m = mass of vehicle 
-% wd = weight distribution
+% m = mass of vehicle (kg)
+% wd = weight distribution (%)
 % Cd = drag coefficient
-% Af = frontal area
-% e = drivetrain efficiency
+% Af = frontal area (m^2)
+% e = drivetrain efficiency (%)
 % gr = gear ratio
-% tr = tire radius
+% tr = tire radius (m)
 % Cfx = coefficient of lateral friction
 % Cfy = coefficient of longitudinal friction
 % Cr = coefficient of rolling resistance
-% power = motor rpm and torque curve (given in a [x, 2] matrix)
-% tStep = time intervals between each calculated speed/acceleration
-% track = track specs (given in a [x, 2] matrix)
+% power = motor rpm and torque curve (given in a [x, 2] matrix) (rpm x Nm)
+% tStep = time intervals between each calculated speed/acceleration (s)
+% track = track specs (given in a [x, 2] matrix) (m x m)
 
 % constants
 g = 9.81;
