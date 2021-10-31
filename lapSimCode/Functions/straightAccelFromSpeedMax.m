@@ -37,7 +37,7 @@ while s < Ts
     fReal = fSlip - fDrag-frr;
     accel = fReal/m;
     d = distanceFromAccel(d, s, tStep, accel);
-    output1(t, :) = [time+t0, s, accel, d + d0];
+    output1(t, :) = [time+t0, s, accel, d + d0, currTorque];
     sNew = accelToSpeed(accel, s, tStep);
     s = sNew;
     t=t+1;

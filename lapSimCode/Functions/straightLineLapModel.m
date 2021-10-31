@@ -45,7 +45,7 @@ realTorque = torque*gr*e;
 s = 0; 
 
 % matrix of t, s, and a
-output = zeros(1,4);
+output = zeros(1,5);
 
 % distance
 d = 0;
@@ -62,7 +62,7 @@ for t = 0:tMax/tStep
     fReal = fSlip - fDrag-frr;
     accel = fReal/m;
     d = distanceFromAccel(d, s, tStep, accel);
-    output(t+1, :) = [time, s, accel, d];
+    output(t+1, :) = [time, s, accel, d, currTorque];
     sNew = accelToSpeed(accel, s, tStep);
     s = sNew;
 end 

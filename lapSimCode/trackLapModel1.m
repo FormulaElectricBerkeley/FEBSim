@@ -63,8 +63,8 @@ for i = 1:length(radii)
     maxSpeed(i) = currMaxSpeed;
 end
 
-% initialize 1x4 matrix for final output
-output = zeros(1, 4);
+% initialize 1x5 matrix for final output
+output = zeros(1, 5);
 
 t0 = 0;
 d0 = 0;
@@ -173,7 +173,7 @@ for i = 1:(length(radii)-1)
                     end
                     disp('distanceDecel');
                     disp(distanceDecel);
-                    output = cat(1,output,[time+t0, s, accel, d + d0]);
+                    output = cat(1,output,[time+t0, s, accel, d + d0, currTorque]);
                     sNew = accelToSpeed(accel, s, tStep);
                     s = sNew;
                     t=t+1;
@@ -186,7 +186,7 @@ for i = 1:(length(radii)-1)
                     timeDecel = (s - maxSpeed(i+1))/maxDecel;
                     distanceDecel = s*timeDecel - (1/2)*maxDecel*(timeDecel)^2;
                     distanceLeft = initialLength - d;
-                    output = cat(1, output, [time+t0, s, 0, d + d0]);
+                    output = cat(1, output, [time+t0, s, 0, d + d0, currTorque]);
                     t=t+1;
                 end
             end
@@ -226,6 +226,7 @@ timeData = output(:,1);
 velocityData = output(:,2);
 accelData = output(:,3);
 distanceData = output(:,4);
+torqueData = output(:,5);
 
 % graph output data
 
@@ -248,6 +249,16 @@ yyaxis right
 plot(x,z)
 ylabel('longitudinal acceleration (m/s^2)');
 
+
+fig1 = figure;
+x = timeData;
+left_color = [0.5 0 0.5];
+set(fig1,'defaultAxesColorOrder',[left_color]);
+title('Torque vs Time');
+a = smoothdata(torqueData);
+plot(x,a)
+xlabel('time (s)');
+ylabel('Torque (Nm)');
 
 end
 

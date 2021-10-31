@@ -20,7 +20,7 @@ while d < Td
     fBrake = ffy + fDrag + frr;
     accel = -fBrake/m;
     d = distanceFromAccel(d, s, tStep, accel);
-    output1(t, :) = [time + t0, s, accel, d + d0];
+    output1(t, :) = [time + t0, s, accel, d + d0, fBrake*tr];
     sNew = accelToSpeed(accel, s, tStep);
     s = sNew;
     t = t+1;

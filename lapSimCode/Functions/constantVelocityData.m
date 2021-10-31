@@ -14,7 +14,7 @@ output1 = [];
 while d<Td
      time = t*tStep;
      d = d + s*tStep;
-     output1(t, :) = [time + t0, s, 0, d+d0];
+     output1(t, :) = [time + t0, s, 0, d+d0, 0];
      t = t+1;
 end
 len = size(output1,1);

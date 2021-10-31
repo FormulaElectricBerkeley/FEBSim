@@ -22,7 +22,7 @@ s = V0;
 d = 0;
 
 t = 0;
-output = zeros(1,4);
+output = zeros(1,5);
 
 while d <= Td
     time = t*tStep;
@@ -37,7 +37,7 @@ while d <= Td
     sNew = accelToSpeed(accel, s, tStep);
     s = sNew;
     t=t+1;
-    output(t,:) = [time, s, accel, d];
+    output(t,:) = [time, s, accel, d, currTorque];
 end 
 
 end
