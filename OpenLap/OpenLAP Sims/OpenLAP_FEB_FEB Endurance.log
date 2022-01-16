@@ -7,8 +7,8 @@ _  / / /__  __ \  _ \_  __ \_  / __  /| |_  /_/ /
 =================================================
 Vehicle: FEB
 Track:   FEB Endurance
-Date:    31/10/2021
-Time:    14:26:08
+Date:    01/12/2021
+Time:    17:33:22
 =================================================
 Simulation started.
 Maximum speed calculated at all points.
@@ -2548,7 +2548,7 @@ ________________________________________________
      34	    276	      2	  275.0	  29.07	  29.70
 ________________________________________________
 Velocity profile calculated successfully.
-Solver time is: 1.163758 [s]
+Solver time is: 1.711119 [s]
 Post-processing initialised.
 Correct solution selected from modes.
 Laptime calculated.
@@ -2566,4 +2566,4 @@ Sector   1:  59.448 [s]
 Plots created and saved.
 Export initialised.
 Exported .csv file successfully.
-Elapsed time is: 5.601301 [s]
+Elapsed time is: 10.238806 [s]
