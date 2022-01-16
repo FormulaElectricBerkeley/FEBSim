@@ -1,12 +1,17 @@
-function EffTime = EfficiencyCalc(OLResults, EffGraph,numMotors)
+function EffTime = EfficiencyCalc(OLResults, EffGraph,numMotors, lapsim)
     %Script to calculate overal car power consumption given OptimumLap 
     %results. Factors in motor innefficiency map that OL does not support.
+
 
 
     %Parameters
     %OLResults: Matrix from OptimumLap with columns, Time, RPM, Torque, and Brake Power
     %EffGraph: Matrix made from motor curves with columns, RPM, Torque, and Efficiency
     %numMotors: Number of Motors
+    %lapsim: Results from FEB trackLapModel
+
+    %FEB trackLapModel import (comment code out if using OptimumLap Results)
+    OLResults = cat(2, lapsim(:,1), lapsim(:,2)/(.254)*3.54*2*pi/60, lapsim(:,5)./4, zeros(length(lapsim),1));
         
     EffRPM = EffGraph(:,1);
     EffTorque = EffGraph(:,2);
