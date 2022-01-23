@@ -85,6 +85,6 @@ y = [0, y];
  figure;
  plot(x,y);
  hold on
- title('Track');
+ title('Track Points');
  axis equal;
  hold off

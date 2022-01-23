@@ -31,6 +31,7 @@ function [output] = plotArc(p1,p2,radius,type, angle)
            x = C(1)+R*cos(t);
            y = C(2)+R*sin(t);
            plot(x,y,'b-',C(1),C(2),'w*')
+           title("FEB 2012 Nebraska Endurance Track")
            axis equal
            hold on
    end
