@@ -1,5 +1,5 @@
-Type = 	[	"Straight"	,	
-		"Left"	,	
+Type = 	[	"Straight"	,
+        "Left"	,	
 		"Left"	,	
 		"Right"	,	
 		"Left"	,	
