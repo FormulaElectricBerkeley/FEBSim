@@ -84,6 +84,6 @@ class TimeLogger:
         print (current_time)
         return(current_time)
             
-    
+#example of the function below    
 newTimerLoger = TimeLogger(0, 0, .025, 9.45594300712411, 75)   
 newTimerLoger.get_time_given_distance(0, 0, .025, 9.45594300712411, 75)
