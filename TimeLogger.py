@@ -1,3 +1,4 @@
+from cmath import sqrt
 import math
 pi = math.pi
 #import numpy as np
@@ -92,6 +93,15 @@ class TimeLogger:
             acceleration = new_acceleration
         print(current_time)
         return(current_time)
+
+    def get_apex_speed(self, accel_y, turn_radius):
+        return sqrt(accel_y * turn_radius)
+
+    def accelerate(self, curr_velocity, accel_x):
+        return sqrt(curr_velocity ** 2 + 2 * accel_x * self.delta_time)
+
+    def deccelerate(self, curr_velocity, accel_x):
+        return sqrt(curr_velocity ** 2 - 2 * accel_x * self.delta_time)
             
 #example of the function below    
 # newTimeLogger = TimeLogger(0, 0, .025, 9.45594300712411, 75)
