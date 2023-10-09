@@ -48,8 +48,8 @@ tic
 
 %% Filenames
 
-trackfile = 'OpenTRACK Tracks/OpenTRACK_FEB Endurance_Closed_Forwards.mat' ;
-vehiclefile = 'OpenVEHICLE Vehicles/OpenVEHICLE_FEB_Open Wheel.mat' ;
+trackfile = 'OpenTRACK Tracks/OpenTRACK_Michigan 2014_Closed_Forward.mat' ;
+vehiclefile = 'OpenVEHICLE Vehicles/OpenVEHICLE_FEB_SN3_30kW_Open Wheel.mat' ;
 
 %% Loading circuit
 
@@ -113,6 +113,7 @@ for i=1:max(tr.sector)
 end
 
 %% Ploting results
+
 
 % figure window
 set(0,'units','pixels') ;
@@ -224,6 +225,7 @@ savefig(simname+".fig")
 disp('Plots created and saved.')
 fprintf(logid,'%s\n','Plots created and saved.') ;
 
+
 %% Report generation
 
 % csv report generation
@@ -236,6 +238,30 @@ fprintf(logid,'%s','Elapsed time is: ') ;
 fprintf(logid,'%f',toc) ;
 fprintf(logid,'%s\n',' [s]') ;
 fclose('all') ;
+
+torque = sim.engine_torque.data;
+speed = sim.engine_speed.data*2*pi/60;
+power = sim.engine_power.data;
+time = sim.time.data;
+
+figure
+yyaxis left
+plot(tr.x, torque, "b--", tr.x, power/1000, "m-");
+ylabel("Torque (Nm) and Power (kW)")
+yyaxis right
+plot(tr.x, speed)
+legend("torque", "power", "speed")
+xlabel("dist (m)")
+ylabel("Engine Speed (Rad/s)")
+
+%Integrate energy (J) at each time step with trapz method
+EnergyLap = cumtrapz(time,power);
+
+%Multiply by number of laps and convert to kWh
+BaseEnergy = EnergyLap(end)*(22/1.06997)*2.77778e-7;
+
+disp("Base Energy (kWh): " + BaseEnergy)
+
 
 %% Functions
 

@@ -58,7 +58,7 @@ fclose('all') ;
 
 %% Track excel file selection
 
-filename = 'FEBtrack.xlsx' ;
+filename = 'Michigan 2014.xlsx' ;
 
 %% Mode
 
@@ -70,11 +70,11 @@ mode = 'shape data' ;
 %% Settings
 
 % meshing
-mesh_size = 1 ; % [m]
+mesh_size = 0.25 ; % [m]
 % filtering for logged data mode
 filter_dt = 0.5 ; % [s]
 % track map rotation angle
-rotation = 90+45 ; % [deg]
+rotation = 0 ; % [deg]
 % track map shape adjuster
 lambda = 1 ; % [-]
 
@@ -344,8 +344,9 @@ else
         end
     end
     % saving coarse results
-    rr = r ;
-    xx = x ;
+    [xx,ia,~] = unique(x) ;
+    rr = r(ia) ;
+    
     % HUD
     disp('Coarse meshing completed.')
     
